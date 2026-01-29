@@ -1,7 +1,7 @@
 #!/bin/bash
 NUM=$!
 
-if [ $NUM gt 20 ]; then
+if [ $NUM -gt 20 ]; then
     echo ' the number is greater than the 20'
 else
     echo ' the nubmber is less than 20 '
