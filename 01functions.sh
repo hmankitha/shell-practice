@@ -16,3 +16,4 @@ installing(){
     fi    
     exit 1
 }
+installing 0 nginx
