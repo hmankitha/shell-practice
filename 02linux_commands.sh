@@ -8,7 +8,7 @@ fi
 echo "nginx is installing"
 dnf install nginx
 
-if [($? -eq 0)]; then 
+if [ $? -eq 0 ]; then 
     echo "nginx installed sucessfull"
 else 
     echo "nginx failes to install"
