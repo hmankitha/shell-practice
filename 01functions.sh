@@ -17,7 +17,7 @@ installing(){
     fi    
    
 }
-installing "$(id -u)" nginx
+installing "$id -u" nginx
 
 #!/bin/bash
 
