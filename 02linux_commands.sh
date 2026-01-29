@@ -1,6 +1,6 @@
 #!/bin/bash
 USERID=$(id -u)
-if [(${USERID} -ne 0)]; then
+if ["${USERID}" -ne 0]; then
     echo "try to loogin with the root user"
     exit 1
 fi
