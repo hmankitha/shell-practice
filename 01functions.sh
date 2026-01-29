@@ -1,4 +1,4 @@
-#1/bin/bash
+#!/bin/bash
 
 installing(){
     if [ "$1" -ne 0 ]; then
