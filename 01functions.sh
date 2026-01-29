@@ -14,5 +14,5 @@ installing(){
     else 
         echo "the "$2" installation was failed"
     fi    
-    exit
+    exit 1
 }
