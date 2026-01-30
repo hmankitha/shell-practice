@@ -15,11 +15,18 @@ VALIDATE(){
         echo " the installation of the $2 is sucess"
     else 
         echo " error while installing the $2"    
+        exit 1
     fi    
 }
 
 for package in $@
 do 
-    dnf install $package -y &>> $LOGS_FILE
-    VALIDATE $? "$package"
+    dnf list installed $package
+    if [ $? -nq 0 ]; then
+        echo "the $package is not instelled, now installing"
+        dnf install $package -y &>> $LOGS_FILE
+        VALIDATE $? "$package"
+    else:
+        echo "the $package is already installed skipping"    
+    fi    
 done    
