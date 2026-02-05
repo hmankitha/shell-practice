@@ -22,6 +22,10 @@ USAGE(){
     exit 1
 }
 
+log(){
+    echo -e "(date "+%Y-%m-%d %H:%M:%S") | $1 " tee -a LOGS_FILE
+}
+
 if [ $# -lt 2 ]; then
     USAGE 
 fi    
@@ -32,11 +36,19 @@ if [ ! -d $SOURCE_DIR ]; then
 fi    
 
 if [ ! -d $SOURCE_DIR ]; then 
-    echo "#SOURCE_DIR does not exit"
+    echo -e "$R Source Directory: #SOURCE_DIR does not exit"
     exit 1
 fi  
 
 if [ ! -d $DEST_DIR ]; then 
-    echo "#DEST_DIR does not exit"
+    echo "$R Destination Directory: #DEST_DIR does not exit"
     exit 1
 fi 
+
+### find the files
+FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
+
+log "Backup started"
+log "source Directory: $SOURCE_DIR"
+log "Destination Directory: $DEST_DIR"
+log "Days: $DAYS"
