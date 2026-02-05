@@ -10,7 +10,7 @@ SOURCE_DIR=$1
 DEST_DIR=$2
 DAYS=${3:-14} # 14 days is the default value
 
-if [ $USERID -nq 0 ]; then
+if [ $USERID -ne 0 ]; then
     echo -e "$R try by login as a root user $N "
     exit 1
 fi
